@@ -5,8 +5,7 @@ class ImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var img = const NetworkImage(
-        'https://zqcdl-pic.oss-cn-hangzhou.aliyuncs.com/avatar/me.jpg');
+    var img = const AssetImage('images/img.jpg');
     return Scaffold(
         appBar: AppBar(
           title: const Text('图片组件'),
@@ -73,7 +72,7 @@ class ImageWidget extends StatelessWidget {
             return Row(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: SizedBox(
                     width: 100,
                     child: e,
