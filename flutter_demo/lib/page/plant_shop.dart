@@ -1,100 +1,173 @@
 import 'package:flutter/material.dart';
 
+const greenColor = Color(0xFF0C9869);
+const greenShadow = Color(0x500C9869);
+const lightGreenColor = Color(0xFF92D7AA);
+const unSelectedColor = Color(0xFFCCCCCC);
+
 // 植物小店
-class PlantShop extends StatelessWidget {
+class PlantShop extends StatefulWidget {
   const PlantShop({Key? key}) : super(key: key);
 
   @override
+  State<PlantShop> createState() => _PlantShopState();
+}
+
+class _PlantShopState extends State<PlantShop> {
+  var _currentIndex = 0;
+
+  @override
   Widget build(BuildContext context) {
-    // banner中的字体样式
-    const style = TextStyle(
-        color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold);
     // 构建脚手架，包含顶部appBar和body
     return Scaffold(
-      appBar: _buildAppBar(),
-      // 包含1.贝塞尔弧形部分 和 2.热门推荐 特色植物部分
-      body: SingleChildScrollView(
-        child: Column(
+        appBar: _buildAppBar(),
+        // 包含1.贝塞尔弧形部分 和 2.热门推荐 特色植物部分
+        body: Stack(
           children: <Widget>[
-            // 贝塞尔弧形部分
-            ClipPath(
-              // 裁剪。使用自定义的类构建贝塞尔弧形
-              clipper: BottomClipper(),
-              child: Container(
-                // 通过内边距让文字上移
-                padding: const EdgeInsets.only(bottom: 50.0),
-                // 和 appBar背景色保持一致，融为一体
-                color: const Color(0xFF0C9869),
-                height: 200,
-                child: Column(
-                  children: [
-                    Row(
-                      // 主轴和交叉轴的对齐方式
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const <Widget>[
-                        // Row布局，左文右图
-                        Text(
-                          'Hi 小鹿扫描！',
-                          style: style,
-                        ),
-                        SizedBox(
-                          width: 80,
-                          height: 80,
-                          child: CircleAvatar(
-                            radius: 50,
-                            backgroundImage: AssetImage('images/avatar.jpg'),
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: _buildHeader(),
             ),
-            // Body类构建下面的热门推荐和特色植物
-            const Body()
+            Positioned(
+              top: 130,
+              left: 20,
+              right: 20,
+              child: _buildSearch(),
+            ),
+            Positioned(
+              top: 200,
+              left: 0,
+              right: 0,
+              height: MediaQuery.of(context).size.height - 200,
+              child: const Body(),
+            )
           ],
         ),
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            selectedItemColor: greenColor,
+            unselectedItemColor: unSelectedColor,
+            items: const [
+              BottomNavigationBarItem(
+                  label: '',
+                  icon: Icon(
+                    Icons.filter_vintage_outlined,
+                  ),
+                  activeIcon: Icon(
+                    Icons.filter_vintage,
+                  )),
+              BottomNavigationBarItem(
+                  label: '',
+                  icon: Icon(
+                    Icons.favorite_border,
+                  ),
+                  activeIcon: Icon(
+                    Icons.favorite,
+                  )),
+              BottomNavigationBarItem(
+                  label: '',
+                  icon: Icon(
+                    Icons.person_outline,
+                  ),
+                  activeIcon: Icon(
+                    Icons.person,
+                  )),
+            ],
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            }));
+  }
+
+  // 构建顶部Header
+  Container _buildHeader() {
+    // banner中的字体样式
+    const style = TextStyle(
+        color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold);
+    return Container(
+      // 通过内边距让文字上移
+      padding: const EdgeInsets.only(bottom: 50),
+      height: 160,
+      decoration: const BoxDecoration(
+          // 和 appBar背景色保持一致，融为一体
+          color: greenColor,
+          // 左下右下圆角
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(40),
+            bottomRight: Radius.circular(40),
+          )),
+      child: Row(
+        // 主轴和交叉轴的对齐方式
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          // Row布局，左文右图
+          Text(
+            'Hi 小鹿扫描！',
+            style: style,
+          ),
+          SizedBox(
+            width: 80,
+            height: 80,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('images/avatar.jpg'),
+            ),
+          )
+        ],
       ),
     );
   }
 
-  // 构建顶部appBar的私有方法
-  AppBar _buildAppBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: const Color(0xFF0C9869),
-      actions: const [
-        Icon(
-          Icons.code,
-          color: Colors.white,
-        )
-      ],
+  // 构建搜索区
+  Container _buildSearch() {
+    return Container(
+      height: 60,
+      alignment: Alignment.centerLeft,
+      padding: const EdgeInsets.only(left: 20.0),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        boxShadow: [
+          BoxShadow(offset: Offset(0, 10), blurRadius: 50, color: greenShadow)
+        ],
+      ),
+      child: const TextField(
+        autofocus: true,
+        cursorColor: greenShadow,
+        decoration: InputDecoration(
+            border: OutlineInputBorder(borderSide: BorderSide.none),
+            suffixIcon: Icon(
+              Icons.search,
+              color: lightGreenColor,
+              size: 30,
+            ),
+            // labelText: '搜索'
+            hintText: 'Search',
+            hintStyle: TextStyle(fontSize: 20, color: lightGreenColor)),
+      ),
     );
   }
 }
 
-// 自定义裁剪路径，通过贝塞尔曲线构建弧形
-class BottomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, 0); // 第一个点
-    path.lineTo(0, size.height - 60); // 第二个点
-    var firstControlPoint = Offset(size.width / 2, size.height); // 曲线开始点
-    var firstEndPoint = Offset(size.width, size.height - 60); // 曲线结束点
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-    path.lineTo(size.width, size.height - 60); // 第四个点
-    path.lineTo(size.width, 0); // 第五个点
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
-  }
+// 构建顶部appBar的私有方法
+AppBar _buildAppBar() {
+  return AppBar(
+    elevation: 0,
+    backgroundColor: greenColor,
+    actions: const [
+      Padding(
+        padding: EdgeInsets.only(right: 12.0),
+        child: Icon(
+          Icons.code,
+          color: Colors.white,
+        ),
+      )
+    ],
+  );
 }
 
 // Body类构建
@@ -105,10 +178,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     // 标题字体
     var titleStyle = const TextStyle(
-        color: Colors.black87,
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic);
+        color: Colors.black87, fontSize: 24, fontWeight: FontWeight.bold);
     // 纵向滚动视图，两部分组成：热门推荐和特色植物
     return SingleChildScrollView(
       // 纵向 + Column布局
@@ -118,6 +188,7 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
+            margin: const EdgeInsets.fromLTRB(0, 60, 0, 0),
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,7 +200,8 @@ class Body extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF0C9869),
+                      primary: greenColor,
+                      fixedSize: const Size(80, 20),
                       // 更大的圆角 让按钮变为胶囊形
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
@@ -152,7 +224,8 @@ class Body extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF0C9869),
+                      primary: greenColor,
+                      fixedSize: const Size(80, 20),
                       // 更大的圆角 让按钮变为胶囊形
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
@@ -189,14 +262,14 @@ class RecommendsPlants extends StatelessWidget {
           ),
           RecommendPlantCard(
             image: "images/plant2.png",
-            title: '当归',
+            title: '凤尾竹',
             country: '中国',
             price: 440,
           ),
           RecommendPlantCard(
             image: "images/plant3.png",
-            title: '萨曼沙',
-            country: '俄罗斯',
+            title: '狐尾天门冬',
+            country: '非洲',
             price: 440,
           ),
         ],
@@ -221,7 +294,7 @@ class RecommendPlantCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.all(10.0),
+      margin: const EdgeInsets.fromLTRB(10, 10, 10, 60),
       width: size.width * 0.4,
       child: Column(
         children: <Widget>[
@@ -233,21 +306,20 @@ class RecommendPlantCard extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
                 ),
                 boxShadow: [
                   BoxShadow(
-                      offset: const Offset(0, 10),
-                      blurRadius: 50,
-                      color: Colors.indigo.withOpacity(0.66))
+                      offset: Offset(0, 10), blurRadius: 50, color: greenShadow)
                 ]),
             child: Row(
               children: <Widget>[
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       title.toString(),
@@ -255,12 +327,13 @@ class RecommendPlantCard extends StatelessWidget {
                     ),
                     Text(
                       country.toString(),
-                      style: TextStyle(color: Colors.indigo.withOpacity(0.5)),
+                      style: const TextStyle(color: greenShadow),
                     )
                   ],
                 ),
+                // Spacer用于撑开Row、Column、Flex的子控件的空隙。
                 const Spacer(),
-                Text(price.toString(),
+                Text("\$$price",
                     style: Theme.of(context)
                         .textTheme
                         .button
@@ -309,7 +382,6 @@ class FeaturedPlantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       // alignment：Alignment.center
       margin: const EdgeInsets.all(10),
