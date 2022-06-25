@@ -45,41 +45,45 @@ class _PlantShopState extends State<PlantShop> {
             )
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            selectedItemColor: greenColor,
-            unselectedItemColor: unSelectedColor,
-            items: const [
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: Icon(
-                    Icons.filter_vintage_outlined,
-                  ),
-                  activeIcon: Icon(
-                    Icons.filter_vintage,
-                  )),
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: Icon(
-                    Icons.favorite_border,
-                  ),
-                  activeIcon: Icon(
-                    Icons.favorite,
-                  )),
-              BottomNavigationBarItem(
-                  label: '',
-                  icon: Icon(
-                    Icons.person_outline,
-                  ),
-                  activeIcon: Icon(
-                    Icons.person,
-                  )),
-            ],
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            }));
+        bottomNavigationBar: _buildBottomNavigationBar());
+  }
+
+  BottomNavigationBar _buildBottomNavigationBar() {
+    return BottomNavigationBar(
+          currentIndex: _currentIndex,
+          selectedItemColor: greenColor,
+          unselectedItemColor: unSelectedColor,
+          items: const [
+            BottomNavigationBarItem(
+                label: '',
+                icon: Icon(
+                  Icons.filter_vintage_outlined,
+                ),
+                activeIcon: Icon(
+                  Icons.filter_vintage,
+                )),
+            BottomNavigationBarItem(
+                label: '',
+                icon: Icon(
+                  Icons.favorite_border,
+                ),
+                activeIcon: Icon(
+                  Icons.favorite,
+                )),
+            BottomNavigationBarItem(
+                label: '',
+                icon: Icon(
+                  Icons.person_outline,
+                ),
+                activeIcon: Icon(
+                  Icons.person,
+                )),
+          ],
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          });
   }
 
   // 构建顶部Header
