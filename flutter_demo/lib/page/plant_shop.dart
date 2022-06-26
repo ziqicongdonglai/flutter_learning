@@ -22,8 +22,10 @@ class _PlantShopState extends State<PlantShop> {
     return Scaffold(
         appBar: _buildAppBar(),
         // 包含1.贝塞尔弧形部分 和 2.热门推荐 特色植物部分
+        // Stack组件可以将子组件叠加显示，根据子组件的顺序依次向上叠加
         body: Stack(
           children: <Widget>[
+            // Positioned用于定位Stack子组件，Positioned必须是Stack的子组件
             Positioned(
               top: 0,
               left: 0,
@@ -48,42 +50,48 @@ class _PlantShopState extends State<PlantShop> {
         bottomNavigationBar: _buildBottomNavigationBar());
   }
 
+  // 底部导航栏
   BottomNavigationBar _buildBottomNavigationBar() {
     return BottomNavigationBar(
-          currentIndex: _currentIndex,
-          selectedItemColor: greenColor,
-          unselectedItemColor: unSelectedColor,
-          items: const [
-            BottomNavigationBarItem(
-                label: '',
-                icon: Icon(
-                  Icons.filter_vintage_outlined,
-                ),
-                activeIcon: Icon(
-                  Icons.filter_vintage,
-                )),
-            BottomNavigationBarItem(
-                label: '',
-                icon: Icon(
-                  Icons.favorite_border,
-                ),
-                activeIcon: Icon(
-                  Icons.favorite,
-                )),
-            BottomNavigationBarItem(
-                label: '',
-                icon: Icon(
-                  Icons.person_outline,
-                ),
-                activeIcon: Icon(
-                  Icons.person,
-                )),
-          ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
+        currentIndex: _currentIndex,
+        // 选中的颜色
+        selectedItemColor: greenColor,
+        // 未选中的颜色
+        unselectedItemColor: unSelectedColor,
+        items: const [
+          BottomNavigationBarItem(
+              label: '',
+              // 默认图标
+              icon: Icon(
+                Icons.filter_vintage_outlined,
+              ),
+              // 激活时的图标
+              activeIcon: Icon(
+                Icons.filter_vintage,
+              )),
+          BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                Icons.favorite_border,
+              ),
+              activeIcon: Icon(
+                Icons.favorite,
+              )),
+          BottomNavigationBarItem(
+              label: '',
+              icon: Icon(
+                Icons.person_outline,
+              ),
+              activeIcon: Icon(
+                Icons.person,
+              )),
+        ],
+        // 点击事件
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
           });
+        });
   }
 
   // 构建顶部Header
@@ -105,6 +113,7 @@ class _PlantShopState extends State<PlantShop> {
           )),
       child: Row(
         // 主轴和交叉轴的对齐方式
+        // spaceEvenly 将主轴⽅向上的空白区域均分，使得children之间的空白区域相等，包括首尾child
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const <Widget>[
@@ -116,6 +125,7 @@ class _PlantShopState extends State<PlantShop> {
           SizedBox(
             width: 80,
             height: 80,
+            // CircleAvatar 代表用户的圆圈的控件
             child: CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('images/avatar.jpg'),
@@ -128,6 +138,7 @@ class _PlantShopState extends State<PlantShop> {
 
   // 构建搜索区
   Container _buildSearch() {
+    // 搜索框
     return Container(
       height: 60,
       alignment: Alignment.centerLeft,
@@ -141,9 +152,12 @@ class _PlantShopState extends State<PlantShop> {
       ),
       child: const TextField(
         autofocus: true,
+        // 光标颜色
         cursorColor: greenShadow,
         decoration: InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide.none),
+            // suffixIcon图标在末尾
+            // prefixIcon图标在开头
             suffixIcon: Icon(
               Icons.search,
               color: lightGreenColor,
@@ -192,7 +206,8 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 60, 0, 0),
+            // 顶部距离60
+            margin: const EdgeInsets.only(top: 60),
             padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -205,6 +220,7 @@ class Body extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                       primary: greenColor,
+                      // 固定大小
                       fixedSize: const Size(80, 20),
                       // 更大的圆角 让按钮变为胶囊形
                       shape: RoundedRectangleBorder(
@@ -322,6 +338,7 @@ class RecommendPlantCard extends StatelessWidget {
                 ]),
             child: Row(
               children: <Widget>[
+                // 名称、产地
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -337,6 +354,7 @@ class RecommendPlantCard extends StatelessWidget {
                 ),
                 // Spacer用于撑开Row、Column、Flex的子控件的空隙。
                 const Spacer(),
+                // $需要转义
                 Text("\$$price",
                     style: Theme.of(context)
                         .textTheme
