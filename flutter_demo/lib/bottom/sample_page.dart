@@ -54,16 +54,16 @@ class _SamplePageState extends State<SamplePage> {
       Info(
         width: 400.0,
         height: 100.0,
-        color: Colors.pink,
-        title: '数据展示面板样例',
-        url: '/data-view',
+        color: Colors.orange,
+        title: '时间轴展示样例',
+        url: '/timeline',
       ),
       Info(
         width: 400.0,
         height: 100.0,
-        color: Colors.orange,
-        title: '时间轴事件展示样例',
-        url: '/timeline',
+        color: Colors.pink,
+        title: '数据展示面板样例',
+        url: '/data-view',
       ),
       Info(
         width: 400.0,

@@ -16,9 +16,9 @@ class _CategoryPageState extends State with SingleTickerProviderStateMixin {
   // 标签页面
   final tabPages = [
     // 无状态
-    const StatelessPage(),
+    const StatelessWidgetPage(),
     // 有状态
-    const StatefulPage(),
+    const StatefulWidgetPage(),
     Container(),
     Container(),
     Container(),
@@ -49,7 +49,6 @@ class _CategoryPageState extends State with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: const Text('分类'),
-        backgroundColor: Colors.indigo,
         centerTitle: true,
         // actions 程序栏右边
         actions: const <Widget>[
