@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 const titleStyle =
     TextStyle(fontSize: 22, color: Colors.indigo, fontWeight: FontWeight.bold);
 
+const titleLightStyle = TextStyle(
+  fontSize: 22,
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+);
+
 const subTitleStyle =
     TextStyle(fontSize: 20, color: Colors.black87, fontWeight: FontWeight.bold);
 
