@@ -98,6 +98,13 @@ final statelessList = <ContainerInfo>[
       '左中右模式的通用结构组件，可指定中间组件距左侧边距及是否居中。源码在AppBar等导航条结构中有使用它。',
       '/navigationtoolbar'),
   ContainerInfo('Placeholder', '一个矩形和叉叉的占位组件，可指定颜色、线宽、宽高等属性。', '/placeholder'),
+  ContainerInfo('Icon', '各种图标组件', '/icon'),
+  ContainerInfo('Divider', '水平、垂直分割线组件', '/divider'),
+  ContainerInfo(
+      'Others',
+      '包括PreferredSize，BackButton,CloseButton,ModalBarrier,Banners组件',
+      '/others'),
+  ContainerInfo('Cupertino', 'iOS风格组件', '/cupertino'),
 ];
 
 // 有状态组件

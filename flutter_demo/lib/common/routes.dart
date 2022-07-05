@@ -16,17 +16,21 @@ import 'package:flutter_demo/widget/stateless/chip_widget.dart';
 import 'package:flutter_demo/widget/stateless/choice_widget.dart';
 import 'package:flutter_demo/widget/stateless/circleavatar_widget.dart';
 import 'package:flutter_demo/widget/stateless/container_widget.dart';
+import 'package:flutter_demo/widget/stateless/cupertino_widget.dart';
 import 'package:flutter_demo/widget/stateless/daypicker_widget.dart';
 import 'package:flutter_demo/widget/stateless/dialog_widget.dart';
+import 'package:flutter_demo/widget/stateless/divider_widget.dart';
 import 'package:flutter_demo/widget/stateless/filterchip_widget.dart';
 import 'package:flutter_demo/widget/stateless/gesturedetector_widget.dart';
 import 'package:flutter_demo/widget/stateless/gridtile_widget.dart';
 import 'package:flutter_demo/widget/stateless/gridview_widget.dart';
+import 'package:flutter_demo/widget/stateless/icon_widget.dart';
 import 'package:flutter_demo/widget/stateless/inputchip_widget.dart';
 import 'package:flutter_demo/widget/stateless/listtile_widget.dart';
 import 'package:flutter_demo/widget/stateless/listview_widget.dart';
 import 'package:flutter_demo/widget/stateless/materialbanner_widget.dart';
 import 'package:flutter_demo/widget/stateless/navigationtoolbar_widget.dart';
+import 'package:flutter_demo/widget/stateless/others_widget.dart';
 import 'package:flutter_demo/widget/stateless/pageview_widget.dart';
 import 'package:flutter_demo/widget/stateless/placeholder_widget.dart';
 import 'package:flutter_demo/widget/stateless/radiolisttile_widget.dart';
@@ -79,6 +83,10 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/materialbanner': (context) => const MaterialBannerWidget(),
   '/navigationtoolbar': (context) => const NavigationToolbarWidget(),
   '/placeholder': (context) => const PlaceholderWidget(),
+  '/icon': (context) => const IconWidget(),
+  '/divider': (context) => const DividerWidget(),
+  '/others': (context) => const OthersWidget(),
+  '/cupertino': (context) => const CupertinoWidget(),
   // 有状态组件导航
   '/image': (context) => const ImageWidget(),
   '/sliverappbar': (context) => const SliverAppBarWidget(),
