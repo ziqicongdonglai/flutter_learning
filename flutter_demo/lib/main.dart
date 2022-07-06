@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_demo/bottom/index.dart';
@@ -7,6 +8,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() {
   runApp(const MyApp());
 }
+
+//将应用的根组件包裹在 DevicePreview中
+// void main() {
+//   runApp(DevicePreview(
+//     enabled: !kReleaseMode,
+//     builder: (context) => const MyApp(),
+//   ));
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -22,6 +31,10 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 
     return MaterialApp(
+      // DevicePreview使用相关
+      // useInheritedMediaQuery: true,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
