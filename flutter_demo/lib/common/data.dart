@@ -127,4 +127,20 @@ final statefulList = <ContainerInfo>[
       '/animatedswitcher'),
   ContainerInfo(
       'AnimatedEffect', '透明动画、边距动画、定位动画、尺寸动画、物理模块动画等。', '/animatedeffect'),
+  ContainerInfo(
+      'TransitionEffect', '透明变换、边距变换、定位变换、尺寸变换、装饰变换等。', '/transitioneffect'),
+  ContainerInfo(
+      'Material', 'Material风格组件的核心，可指定颜色、影深、类型、阴影颜色、形状等属性。', '/material'),
+  ContainerInfo(
+      'MaterialApp', 'Material 应用的顶级组件，包含路由生成器、主题、语言、主页等属性。', '/materialapp'),
+  ContainerInfo(
+      'WillPopScope',
+      '返回拦截，当一个界面中有WillPopScope组件时，在页面返回时会触发回调，决定是否返回。可用于二次确认退出的场景。',
+      '/willpopscope'),
+  ContainerInfo(
+      'Hero', '可指定标签名，两个界面跳转时具有相同标签的组件会进行共享动画。一个界面中不能存在两个同名的Hero标签。', '/hero'),
+  ContainerInfo(
+      'FutureBuilder',
+      '可指定一个Future对象，能够监听异步执行的状态，并在构造器中根据状态构建不同的界面。该Future对象不能和FutureBuilder同时创建，否则可能过渡刷新。',
+      '/futurebuilder'),
 ];
