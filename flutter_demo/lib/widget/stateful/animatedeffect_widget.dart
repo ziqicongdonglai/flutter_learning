@@ -27,7 +27,7 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
   final endTop = 30.0;
   var _top = 0.0;
 
-  // 定位⽅向动画参数
+  // 定位方向动画参数
   final startTop1 = 0.0;
   final endTop1 = 30.0;
   var _top1 = 0.0;
