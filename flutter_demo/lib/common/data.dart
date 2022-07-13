@@ -180,3 +180,18 @@ final statefulList = <ContainerInfo>[
   ContainerInfo('SelectableText', '可选择的文字，可以选择、复制。可指定浮标的颜色、大小、文字样式、对齐方式等。',
       '/selectabletext'),
 ];
+
+// 单渲染组件
+final singleRenderList = <ContainerInfo>[];
+
+// 多渲染组件
+final multiRenderList = <ContainerInfo>[];
+
+// 可折叠组件
+final sliverList = <ContainerInfo>[];
+
+// 可寄居组件
+final liveAwayList = <ContainerInfo>[];
+
+// 非分类组件
+final otherList = <ContainerInfo>[];

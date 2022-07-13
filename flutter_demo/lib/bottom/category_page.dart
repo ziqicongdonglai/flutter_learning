@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/page/live_away_widget_page.dart';
+import 'package:flutter_demo/page/multi_render_widget_page.dart';
+import 'package:flutter_demo/page/other_widget_page.dart';
+import 'package:flutter_demo/page/single_render_widget_page.dart';
+import 'package:flutter_demo/page/sliver_widget_page.dart';
 import 'package:flutter_demo/page/stateful_widget_page.dart';
 import 'package:flutter_demo/page/stateless_widget_page.dart';
 
@@ -19,11 +24,16 @@ class _CategoryPageState extends State with SingleTickerProviderStateMixin {
     const StatelessWidgetPage(),
     // 有状态
     const StatefulWidgetPage(),
-    Container(),
-    Container(),
-    Container(),
-    Container(),
-    Container()
+    // 单渲染
+    const SingleRenderWidgetPage(),
+    // 多渲染
+    const MultiRenderWidgetPage(),
+    // 可折叠
+    const SliverWidgetPage(),
+    // 可寄居
+    const LiveAwayWidgetPage(),
+    // 未分类
+    const OtherWidgetPage()
   ];
 
   // 延迟初始化 定义变量没有赋值的时候需要在前面加late
