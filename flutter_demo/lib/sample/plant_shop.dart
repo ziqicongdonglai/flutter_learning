@@ -113,7 +113,7 @@ class _PlantShopState extends State<PlantShop> {
           )),
       child: Row(
         // 主轴和交叉轴的对齐方式
-        // spaceEvenly 将主轴⽅向上的空白区域均分，使得children之间的空白区域相等，包括首尾child
+        // spaceEvenly 将主轴方向上的空白区域均分，使得children之间的空白区域相等，包括首尾child
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: const <Widget>[

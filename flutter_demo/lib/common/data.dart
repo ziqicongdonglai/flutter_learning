@@ -188,7 +188,7 @@ final singleRenderList = <ContainerInfo>[
       'Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box'),
   ContainerInfo('AlignPadding', '对齐组件、基线组件、边距组件。', '/align_padding'),
   ContainerInfo('CustomPaint', '绘制组件。', '/custom_paint'),
-  ContainerInfo('Filter', '滤色器相关。', '/filter'),
+  ContainerInfo('ColorFiltered', '滤色器相关。', '/color_filter'),
   ContainerInfo('Builder', '布局构造器。', '/builder'),
   ContainerInfo('Pointer', '忽视点击、吸收点击。', '/pointer'),
   ContainerInfo('Intrinsic', '固有宽、固有高组件。', '/intrinsic'),
