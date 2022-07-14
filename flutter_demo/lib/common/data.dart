@@ -182,7 +182,20 @@ final statefulList = <ContainerInfo>[
 ];
 
 // 单渲染组件
-final singleRenderList = <ContainerInfo>[];
+final singleRenderList = <ContainerInfo>[
+  ContainerInfo('Clip', '路径裁剪、概圆裁剪、矩形裁剪、圆角矩形裁剪。', '/clip'),
+  ContainerInfo(
+      'Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box'),
+  ContainerInfo('AlignPadding', '对齐组件、基线组件、边距组件。', '/align_padding'),
+  ContainerInfo('CustomPaint', '绘制组件。', '/custom_paint'),
+  ContainerInfo('Filter', '滤色器相关。', '/filter'),
+  ContainerInfo('Builder', '布局构造器。', '/builder'),
+  ContainerInfo('Pointer', '忽视点击、吸收点击。', '/pointer'),
+  ContainerInfo('Intrinsic', '固有宽、固有高组件。', '/intrinsic'),
+  ContainerInfo('Transform', '变换组件。', '/transform'),
+  ContainerInfo('RepaintBoundary', '重绘边界组件。', '/repaint_boundary'),
+  ContainerInfo('PhysicalShape', '物理形状组件。', '/physical_shape'),
+];
 
 // 多渲染组件
 final multiRenderList = <ContainerInfo>[];
