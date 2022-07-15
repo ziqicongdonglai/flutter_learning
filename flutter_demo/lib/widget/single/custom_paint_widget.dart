@@ -190,7 +190,7 @@ class BasicPainter extends CustomPainter {
     // 绘制贝塞尔曲线
     //cubicTo(double x1, double y1, double x2, double y2, double x3, double y3)
     //定点(x3,y3)，控制点(x1,y1)和(x2, y2)。
-    //调用cubicTo前⼀般先moveTo(x0,y0)确认起始点。
+    //调用cubicTo前一般先moveTo(x0,y0)确认起始点。
     //起点(x0,y0)，终点(x3,y3),
     //(x1,y1)指示起点切线方向，(x2,y2)指示终点切线方向。(x1,y1)和(x2,y2)要在绘制路径范围内。
     path.reset();

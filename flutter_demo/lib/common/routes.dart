@@ -8,6 +8,9 @@ import 'package:flutter_demo/widget/single/box_widget.dart';
 import 'package:flutter_demo/widget/single/clip_widget.dart';
 import 'package:flutter_demo/widget/single/color_filter_widget.dart';
 import 'package:flutter_demo/widget/single/custom_paint_widget.dart';
+import 'package:flutter_demo/widget/single/layout_builder_widget.dart';
+import 'package:flutter_demo/widget/single/offstage_widget.dart';
+import 'package:flutter_demo/widget/single/opacity_widget.dart';
 import 'package:flutter_demo/widget/stateful/animatedbuilder_widget.dart';
 import 'package:flutter_demo/widget/stateful/animatedcontainer_widget.dart';
 import 'package:flutter_demo/widget/stateful/animatedeffect_widget.dart';
@@ -162,6 +165,9 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/align_padding': (context) => const AlignPaddingWidget(),
   '/custom_paint': (context) => const CustomPaintWidget(),
   '/color_filter': (context) => const ColorFilterWidget(),
+  '/layout_builder': (context) => const LayoutBuilderWidget(),
+  '/offstage': (context) => const OffstageWidget(),
+  '/opacity': (context) => const OpacityWidget(),
   // 示例导航
   '/demo-page': (context) => const DemoPage(),
   '/plant-shop': (context) => const PlantShop(),

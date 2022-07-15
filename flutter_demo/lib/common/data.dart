@@ -187,11 +187,16 @@ final singleRenderList = <ContainerInfo>[
   ContainerInfo(
       'Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box'),
   ContainerInfo('AlignPadding', '对齐组件、基线组件、边距组件。', '/align_padding'),
-  ContainerInfo('CustomPaint', '绘制组件。', '/custom_paint'),
-  ContainerInfo('ColorFiltered', '滤色器相关。', '/color_filter'),
-  ContainerInfo('Builder', '布局构造器。', '/builder'),
-  ContainerInfo('Pointer', '忽视点击、吸收点击。', '/pointer'),
-  ContainerInfo('Intrinsic', '固有宽、固有高组件。', '/intrinsic'),
+  ContainerInfo('CustomPaint', '绘制组件，可实现一些复杂的自定义绘制组件，是Flutter中自定义组件的灵魂组件。',
+      '/custom_paint'),
+  ContainerInfo('ColorFiltered', '滤色器，可容纳一个子组件，并将组件按照29种叠色模式和任意组件混合，非常强大。。',
+      '/color_filter'),
+  ContainerInfo('LayoutBuilder',
+      '布局构造器，可以监测到父容器的区域大小，并根据父容器的尺寸信息完成定义布局，是一个非常实用的组件。', '/layout_builder'),
+  ContainerInfo(
+      'OffStage', '消失组件，可容纳一个子组件，可更改其消失与否。offstage属性为true表示隐藏。', '/offstage'),
+  ContainerInfo(
+      'Opacity', '透明度组件，可容纳一个子组件，将其透明度变为opacity值，取值在0-1之间。', '/opacity'),
   ContainerInfo('Transform', '变换组件。', '/transform'),
   ContainerInfo('RepaintBoundary', '重绘边界组件。', '/repaint_boundary'),
   ContainerInfo('PhysicalShape', '物理形状组件。', '/physical_shape'),
