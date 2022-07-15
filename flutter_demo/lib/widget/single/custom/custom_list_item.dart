@@ -23,7 +23,7 @@ class CustomListItem extends StatelessWidget {
               color: info.foregroundColor,
             ),
             child: Container(
-              height: 100,
+              height: 110,
               color: info.backgroundColor,
               padding: const EdgeInsets.only(
                 top: 10,
@@ -38,7 +38,7 @@ class CustomListItem extends StatelessWidget {
                     child: _buildLeading(),
                   ),
                   Expanded(
-                    flex: 4,
+                    flex: 3,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +131,7 @@ class CustomListItem extends StatelessWidget {
 
   Widget _buildTag(Color color) {
     return Positioned(
-      top: 5,
+      top: 7,
       right: 35,
       child: SizedOverflowBox(
         alignment: Alignment.center,

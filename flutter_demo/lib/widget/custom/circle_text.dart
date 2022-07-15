@@ -13,8 +13,8 @@ class CircleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 40,
-      height: 40,
+      width: 60,
+      height: 60,
       // 装饰形状、背景色、阴影等
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white, width: 3.0),
@@ -31,10 +31,15 @@ class CircleText extends StatelessWidget {
         ],
       ),
       child: Text(
-        text,
-        style: TextStyle(fontSize: 20, color: color, shadows: [
-          BoxShadow(color: color, offset: const Offset(.5, .5), blurRadius: 2)
-        ]),
+        text.substring(0, 2),
+        style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: color,
+            shadows: const [
+              BoxShadow(
+                  color: Colors.black, offset: Offset(.5, .5), blurRadius: 2)
+            ]),
       ),
     );
   }

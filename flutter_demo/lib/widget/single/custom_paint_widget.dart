@@ -165,7 +165,7 @@ class BasicPainter extends CustomPainter {
         image,
         const Offset(0, 0) &
             Size(image.width.toDouble() / 2, image.height.toDouble()),
-        const Offset(280, 250) & const Size(100, 80),
+        const Offset(230, 250) & const Size(100, 80),
         _paint);
 
     _paint.color = Colors.grey;
@@ -192,7 +192,7 @@ class BasicPainter extends CustomPainter {
     //定点(x3,y3)，控制点(x1,y1)和(x2, y2)。
     //调用cubicTo前⼀般先moveTo(x0,y0)确认起始点。
     //起点(x0,y0)，终点(x3,y3),
-    //(x1,y1)指示起点切线方向，(x2,y2)指示终点切线⽅向。(x1,y1)和(x2,y2)要在绘制路径范围内。
+    //(x1,y1)指示起点切线方向，(x2,y2)指示终点切线方向。(x1,y1)和(x2,y2)要在绘制路径范围内。
     path.reset();
     // 确定桃心顶部中间点
     path.moveTo(200, 450);
