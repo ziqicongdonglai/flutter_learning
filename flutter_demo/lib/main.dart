@@ -52,6 +52,21 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith(
+            (states) {
+              return const Color(0xff00a89b);
+            },
+          ), foregroundColor: MaterialStateProperty.resolveWith(
+            (states) {
+              return const Color(0xffffffff);
+            },
+          ), shape: MaterialStateProperty.resolveWith<OutlinedBorder>((states) {
+            return const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+            );
+          })),
+        ),
       ),
       // 首页
       home: const Index(),

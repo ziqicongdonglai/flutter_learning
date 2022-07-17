@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 const greenColor = Color(0xFF0C9869);
 
-class SliverAppBarWidget extends StatelessWidget {
-  const SliverAppBarWidget({Key? key}) : super(key: key);
+class SliverAppbarWidget extends StatelessWidget {
+  const SliverAppbarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

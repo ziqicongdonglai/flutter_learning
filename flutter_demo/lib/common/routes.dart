@@ -7,6 +7,21 @@ import 'package:flutter_demo/sample/plant_shop.dart';
 import 'package:flutter_demo/sample/single_chat.dart';
 import 'package:flutter_demo/sample/timeline_page.dart';
 import 'package:flutter_demo/sample/upload_page.dart';
+import 'package:flutter_demo/widget/liveaway/all_theme_widget.dart';
+import 'package:flutter_demo/widget/liveaway/default_text_style_widget.dart';
+import 'package:flutter_demo/widget/liveaway/expanded_widget.dart';
+import 'package:flutter_demo/widget/liveaway/flexible_widget.dart';
+import 'package:flutter_demo/widget/liveaway/media_query_widget.dart';
+import 'package:flutter_demo/widget/liveaway/positioned_widget.dart';
+import 'package:flutter_demo/widget/multi/flex_widget.dart';
+import 'package:flutter_demo/widget/multi/flow_widget.dart';
+import 'package:flutter_demo/widget/multi/indexed_stack_widget.dart';
+import 'package:flutter_demo/widget/multi/rich_text_widget.dart';
+import 'package:flutter_demo/widget/multi/stack_widget.dart';
+import 'package:flutter_demo/widget/multi/wrap_widget.dart';
+import 'package:flutter_demo/widget/other/list_wheel_viewport_widget.dart';
+import 'package:flutter_demo/widget/other/performance_overlay_widget.dart';
+import 'package:flutter_demo/widget/other/table_widget.dart';
 import 'package:flutter_demo/widget/single/align_padding_widget.dart';
 import 'package:flutter_demo/widget/single/box_widget.dart';
 import 'package:flutter_demo/widget/single/clip_widget.dart';
@@ -15,6 +30,18 @@ import 'package:flutter_demo/widget/single/custom_paint_widget.dart';
 import 'package:flutter_demo/widget/single/layout_builder_widget.dart';
 import 'package:flutter_demo/widget/single/offstage_widget.dart';
 import 'package:flutter_demo/widget/single/opacity_widget.dart';
+import 'package:flutter_demo/widget/sliver/custom_scrollview_widget.dart';
+import 'package:flutter_demo/widget/sliver/nested_scrollview_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_animated_list_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_appbar_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_fill_remaining_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_fixed_extent_list_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_grid_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_layout_builder_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_list_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_padding_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_persistent_header_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_to_box_adapter_widget.dart';
 import 'package:flutter_demo/widget/stateful/animatedbuilder_widget.dart';
 import 'package:flutter_demo/widget/stateful/animatedcontainer_widget.dart';
 import 'package:flutter_demo/widget/stateful/animatedeffect_widget.dart';
@@ -132,7 +159,7 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/cupertino': (context) => const CupertinoWidget(),
   // 有状态组件导航
   '/image': (context) => const ImageWidget(),
-  '/sliverappbar': (context) => const SliverAppBarWidget(),
+  '/sliverappbar': (context) => const SliverAppbarWidget(),
   '/animatedcontainer': (context) => const AnimatedContainerWidget(),
   '/animatedbuilder': (context) => const AnimatedBuilderWidget(),
   '/animatedlist': (context) => const AnimatedListWidget(),
@@ -154,7 +181,7 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/draggable': (context) => const DraggableWidget(),
   '/bottomsheet': (context) => const BottomSheetWidget(),
   '/reorderablelistview': (context) => const ReorderableListViewWidget(),
-  '/listwheelscrollview': (context) => const ListWheelScrollViewWidget(),
+  '/listwheelscrollview': (context) => const ListWheelScrollviewWidget(),
   '/form': (context) => const FormWidget(),
   '/textfield': (context) => const TextFieldWidget(),
   '/expansion': (context) => const ExpansionWidget(),
@@ -172,6 +199,38 @@ Map<String, Widget Function(BuildContext)> routes = {
   '/layout_builder': (context) => const LayoutBuilderWidget(),
   '/offstage': (context) => const OffstageWidget(),
   '/opacity': (context) => const OpacityWidget(),
+  // 多渲染组件导航
+  '/flex': (context) => FlexWidget(),
+  '/stack': (context) => const StackWidget(),
+  '/indexed_stack': (context) => const IndexedStackWidget(),
+  '/wrap': (context) => WrapWidget(),
+  '/flow': (context) => const FlowWidget(),
+  '/rich_text': (context) => const RichTextWidget(),
+  // 可折叠组件导航
+  '/custom_scrollview': (context) => const CustomScrollViewWidget(),
+  '/sliver_list': (context) => const SliverListWidget(),
+  '/sliver_persistent_header': (context) =>
+      const SliverPersistentHeaderWidget(),
+  '/sliver_appbar': (context) => const SliverAppBarWidget(),
+  '/sliver_grid': (context) => const SliverGridWidget(),
+  '/sliver_to_box_adapter': (context) => const SliverToBoxAdapterWidget(),
+  '/sliver_layout_builder': (context) => const SliverLayoutBuilderWidget(),
+  '/sliver_fill_remaining': (context) => const SliverFillRemainingWidget(),
+  '/sliver_fixed_extent_list': (context) => const SliverFixedExtentListWidget(),
+  '/sliver_padding': (context) => SliverPaddingWidget(),
+  '/sliver_animated_list': (context) => const SliverAnimatedListWidget(),
+  '/nested_scrollview': (context) => NestedScrollViewWidget(),
+  // 可寄居组件导航
+  '/flexible': (context) => const FlexibleWidget(),
+  '/expanded': (context) => const ExpandedWidget(),
+  '/media_query': (context) => const MediaQueryWidget(),
+  '/positioned': (context) => const PositionedWidget(),
+  '/default_text_style': (context) => const DefaultTextStyleWidget(),
+  '/all_theme': (context) => const AllThemeWidget(),
+  // 其他组件导航
+  '/table': (context) => const TableWidget(),
+  '/list_wheel_viewport': (context) => const ListWheelViewportWidget(),
+  '/performance_overlay': (context) => const PerformanceOverlayWidget(),
   // 示例导航
   '/juejin_list_item': (context) => const JueJinListItem(),
   '/single_chat': (context) => const SingleChat(),

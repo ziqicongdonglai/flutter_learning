@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/common/data.dart';
 import 'package:flutter_demo/common/style.dart';
 
-class ListWheelScrollViewWidget extends StatefulWidget {
-  const ListWheelScrollViewWidget({Key? key}) : super(key: key);
+class ListWheelScrollviewWidget extends StatefulWidget {
+  const ListWheelScrollviewWidget({Key? key}) : super(key: key);
 
   @override
-  State<ListWheelScrollViewWidget> createState() =>
-      _ListWheelScrollViewWidgetState();
+  State<ListWheelScrollviewWidget> createState() =>
+      _ListWheelScrollviewWidgetState();
 }
 
-class _ListWheelScrollViewWidgetState extends State<ListWheelScrollViewWidget> {
+class _ListWheelScrollviewWidgetState extends State<ListWheelScrollviewWidget> {
   var data = <dynamic>[
     Colors.indigo[100],
     Colors.indigo[200],
